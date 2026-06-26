@@ -743,6 +743,120 @@ h1 span{display:block;white-space:nowrap}
   }
 }
 
+
+/* === FINAL MOBILE VISUAL FIX ONLY ===
+   Do not change desktop or page text. On mobile, the infographic must not be cropped,
+   faded, or blocked by the footer. */
+@media (max-width: 980px) {
+  .visual {
+    display: block !important;
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 28px auto 0 !important;
+    padding-top: 0 !important;
+    overflow: visible !important;
+  }
+
+  .visual-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 14px !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .visual-panel::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .arena-map {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .map-title,
+  .map-card,
+  .arena-center,
+  .pool-distribution,
+  .pool-box,
+  .distribution-box,
+  .arrow-note {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .pool-distribution {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .map-card,
+  .arena-center,
+  .pool-box,
+  .distribution-box {
+    overflow: visible !important;
+  }
+
+  .trader-grid,
+  .dist-grid {
+    width: 100% !important;
+    max-width: 310px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mobile-hint {
+    display: none !important;
+  }
+
+  .site-footer {
+    margin-top: 28px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .visual {
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  .visual-panel {
+    padding: 12px !important;
+    border-radius: 24px !important;
+  }
+
+  .arena-map {
+    gap: 12px !important;
+  }
+
+  .map-title b {
+    font-size: 23px !important;
+    line-height: 1.15 !important;
+  }
+
+  .map-title span {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+  .trader-grid,
+  .dist-grid {
+    max-width: 290px !important;
+    gap: 4px !important;
+  }
+}
+
 </style>
 </head>
 <body>
