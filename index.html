@@ -116,6 +116,27 @@ place-items:center;
 .footer-links a{color:var(--gold-soft);text-decoration:none;font-size:12px;font-weight:950;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(246,195,91,.32)}
 .footer-links a:hover{color:var(--emerald);border-bottom-color:rgba(53,227,162,.5)}
 
+
+/* Larger desktop: fill the screen more. */
+@media (min-width:1400px) and (min-height:790px){
+:root{--wrap:1360px}
+.hero{grid-template-columns:.78fr 1.22fr;gap:clamp(34px,4vw,68px);padding-block:clamp(28px,4vh,54px)}
+h1{font-size:clamp(54px,4.75vw,82px);max-width:790px;line-height:1.035}
+.hook strong{font-size:clamp(34px,2.75vw,46px)}
+.sub{font-size:clamp(17px,1.12vw,20px);max-width:760px;line-height:1.62}
+.visual{height:min(72svh,680px);min-height:560px}
+.arena{--s:min(100%,min(50vw,72svh,680px))}
+.core{width:clamp(190px,15vw,250px);height:clamp(190px,15vw,250px)}
+.core b{font-size:clamp(66px,5vw,82px)}
+.pillar{width:clamp(180px,14.5vw,220px)}
+.pillar b{font-size:clamp(22px,1.45vw,27px)}
+.pillar span{font-size:clamp(13px,.86vw,15px)}
+.flow{width:clamp(215px,15vw,260px)}
+.dist{width:clamp(255px,18vw,315px)}
+.note{font-size:clamp(12px,.78vw,14px)}
+.btn{font-size:15px;min-height:52px}
+}
+
 /* Low-height desktop/laptop safety mode */
 @media (min-width:981px) and (max-height:780px){
 :root{--header-h:62px}
