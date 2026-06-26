@@ -6,26 +6,44 @@
 <title>ARENIX Hero Preview</title>
 <style>
 :root{
---bg:#03060c;
---cream:#fff4df;
---cream-soft:rgba(255,244,223,.70);
---cream-faint:rgba(255,244,223,.46);
---text:var(--cream);
---muted:var(--cream-soft);
---line:rgba(255,244,223,.15);
---emerald:#35e3a2;
---green:#1ecb8f;
---gold:#f6c35b;
---gold-soft:#ffe7a8;
---header-h:70px;
---wrap:1240px;
+  --bg:#03060c;
+  --cream:#fff4df;
+  --cream-soft:rgba(255,244,223,.70);
+  --cream-faint:rgba(255,244,223,.46);
+  --text:var(--cream);
+  --muted:var(--cream-soft);
+  --line:rgba(255,244,223,.15);
+  --emerald:#35e3a2;
+  --gold:#f6c35b;
+  --gold-soft:#ffe7a8;
+  --header-h:70px;
+  --wrap:1280px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#03060c;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden}
-.bg{position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(53,227,162,.15),transparent 30%),radial-gradient(circle at 82% 16%,rgba(246,195,91,.10),transparent 32%),radial-gradient(circle at 78% 80%,rgba(255,244,223,.07),transparent 30%),linear-gradient(135deg,#03050a,#07110f 56%,#060403);z-index:-2}
-.bg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,244,223,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(255,244,223,.024) 1px,transparent 1px);background-size:72px 72px;opacity:.52}
-.wrap{width:min(var(--wrap),100%);margin:auto;padding:0 clamp(16px,2.2vw,28px)}
+body{
+  margin:0;
+  background:#03060c;
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  overflow-x:hidden;
+}
+.bg{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(53,227,162,.15),transparent 30%),
+    radial-gradient(circle at 82% 16%,rgba(246,195,91,.10),transparent 32%),
+    radial-gradient(circle at 78% 80%,rgba(255,244,223,.07),transparent 30%),
+    linear-gradient(135deg,#03050a,#07110f 56%,#060403);
+}
+.bg:after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,244,223,.024) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,244,223,.024) 1px,transparent 1px);
+  background-size:72px 72px;opacity:.52;
+}
+.wrap{width:min(var(--wrap),100%);margin:auto;padding:0 clamp(16px,2.3vw,34px)}
 .nav{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:18px}
 .brand{display:flex;gap:12px;align-items:center;min-width:0}
 .logo{width:42px;height:42px;border-radius:16px;background:var(--cream);color:#061018;display:grid;place-items:center;font-weight:1000;flex:0 0 auto}
@@ -33,80 +51,92 @@ body{margin:0;background:#03060c;color:var(--text);font-family:Inter,system-ui,-
 .brand span{display:block;margin-top:2px;font-size:10px;color:var(--cream-faint);font-weight:900;letter-spacing:.18em;text-transform:uppercase}
 .badge{border:1px solid rgba(53,227,162,.28);background:rgba(53,227,162,.10);padding:9px 13px;border-radius:999px;font-size:11px;font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:#d8ffec;white-space:nowrap}
 
-/* UNIVERSAL RESPONSIVE HERO PROTOCOL */
+/* SIMPLE RESPONSIVE PROTOCOL:
+   desktop = 2 stable columns, no important absolute positioning
+   tablet/mobile = 1 column
+   ultra mobile = stacked cards
+*/
 .hero{
-min-height:calc(100svh - var(--header-h));
-display:grid;
-grid-template-columns:minmax(0,.82fr) minmax(430px,1.18fr);
-gap:clamp(22px,3vw,46px);
-align-items:center;
-padding-block:clamp(18px,3vh,42px);
+  min-height:calc(100svh - var(--header-h));
+  display:grid;
+  grid-template-columns:minmax(430px,.47fr) minmax(0,.53fr);
+  gap:clamp(26px,4vw,64px);
+  align-items:start;
+  padding-block:clamp(24px,4.3vh,54px);
 }
 .copy{min-width:0;position:relative;z-index:2}
 .kicker{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,244,223,.045);padding:7px 12px;font-size:clamp(10px,.72vw,12px);font-weight:1000;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,244,223,.76)}
 .pulse{width:9px;height:9px;border-radius:99px;background:var(--emerald);box-shadow:0 0 18px rgba(53,227,162,.8);flex:0 0 auto}
 h1{
-margin:clamp(16px,2.5vh,26px) 0 0;
-font-size:clamp(38px,4.3vw,66px);
-line-height:1.055;
-letter-spacing:-.052em;
-font-weight:1000;
-max-width:680px;
-text-wrap:balance;
-color:var(--cream);
-text-shadow:0 0 34px rgba(246,195,91,.055)
+  margin:clamp(18px,2.8vh,28px) 0 0;
+  font-size:clamp(36px,3.55vw,66px);
+  line-height:1.06;
+  letter-spacing:-.052em;
+  font-weight:1000;
+  color:var(--cream);
+  text-shadow:0 0 34px rgba(246,195,91,.055);
 }
-.hook{margin-top:clamp(16px,2.4vh,24px);display:inline-grid;gap:5px;border:1px solid rgba(246,195,91,.34);background:linear-gradient(135deg,rgba(246,195,91,.15),rgba(53,227,162,.065));border-radius:22px;padding:clamp(13px,1.5vw,17px) clamp(15px,1.8vw,19px)}
-.hook strong{font-size:clamp(25px,2.45vw,36px);letter-spacing:-.043em;color:var(--gold-soft)}
-.hook span{font-size:clamp(11px,.82vw,14px);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,244,223,.73);font-weight:1000}
-.sub{font-size:clamp(15px,1.15vw,18px);line-height:1.56;color:var(--muted);font-weight:720;max-width:650px;margin:clamp(16px,2.2vh,24px) 0 0}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(20px,2.7vh,30px)}
-.btn{min-height:clamp(44px,5.7vh,52px);border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-weight:1000;padding:0 clamp(18px,1.7vw,24px);font-size:clamp(13px,.95vw,15px);white-space:nowrap}
+h1 span{display:block;white-space:nowrap}
+.hook{margin-top:clamp(16px,2.4vh,24px);display:inline-grid;gap:5px;border:1px solid rgba(246,195,91,.34);background:linear-gradient(135deg,rgba(246,195,91,.15),rgba(53,227,162,.065));border-radius:22px;padding:clamp(13px,1.45vw,17px) clamp(15px,1.7vw,19px)}
+.hook strong{font-size:clamp(24px,2.15vw,38px);letter-spacing:-.043em;color:var(--gold-soft)}
+.hook span{font-size:clamp(11px,.78vw,14px);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,244,223,.73);font-weight:1000}
+.sub{font-size:clamp(14px,1.04vw,18px);line-height:1.56;color:var(--muted);font-weight:720;max-width:650px;margin:clamp(16px,2.2vh,24px) 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(18px,2.7vh,30px)}
+.btn{min-height:clamp(42px,5.4vh,52px);border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-weight:1000;padding:0 clamp(17px,1.6vw,24px);font-size:clamp(12px,.9vw,15px);white-space:nowrap}
 .primary{background:linear-gradient(135deg,var(--emerald),#b7ffe1);color:#061018;box-shadow:0 0 44px rgba(53,227,162,.22)}
 .ghost{border:1px solid rgba(246,195,91,.23);background:rgba(255,244,223,.055);color:rgba(255,244,223,.82)}
-.fine{margin-top:12px;font-size:clamp(10px,.78vw,12px);color:var(--cream-faint);font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+.fine{margin-top:12px;font-size:clamp(10px,.72vw,12px);color:var(--cream-faint);font-weight:850;letter-spacing:.05em;text-transform:uppercase}
 
-.visual{
-min-width:0;
-display:grid;
-place-items:center;
-height:min(68svh,570px);
-min-height:430px;
+/* Robust visual: normal grid/flex, no overlapping orbit. */
+.visual{min-width:0;align-self:start;padding-top:clamp(38px,7.2vh,84px)}
+.visual-panel{
+  position:relative;
+  width:100%;
+  max-width:720px;
+  border:1px solid rgba(255,244,223,.12);
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 52% 44%,rgba(53,227,162,.14),transparent 34%),
+    radial-gradient(circle at 78% 64%,rgba(246,195,91,.12),transparent 32%),
+    rgba(11,18,25,.52);
+  box-shadow:0 36px 120px rgba(0,0,0,.34), inset 0 0 90px rgba(255,244,223,.025);
+  padding:clamp(18px,2.2vw,28px);
+  overflow:hidden;
 }
-.arena{
---s:min(100%,min(48vw,68svh,570px));
-position:relative;
-width:var(--s);
-aspect-ratio:1;
-border-radius:50%;
-display:grid;
-place-items:center;
+.visual-panel:before,.visual-panel:after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(255,244,223,.08);
 }
-.ring{position:absolute;inset:0;border:1px solid rgba(255,244,223,.10);border-radius:50%;box-shadow:inset 0 0 70px rgba(53,227,162,.05)}
-.r2{inset:12%;border-color:rgba(246,195,91,.15)}
-.r3{inset:24%;border-color:rgba(53,227,162,.14)}
-.core{width:clamp(150px,15vw,210px);height:clamp(150px,15vw,210px);border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 35% 25%,rgba(255,244,223,.24),rgba(53,227,162,.13) 35%,rgba(7,14,19,.94) 70%);border:1px solid rgba(255,244,223,.16);box-shadow:0 38px 120px rgba(0,0,0,.45),0 0 90px rgba(53,227,162,.18)}
-.core b{font-size:clamp(50px,5vw,66px);line-height:.8;letter-spacing:-.08em;color:var(--cream)}
-.core span{display:block;margin-top:12px;color:rgba(255,244,223,.68);font-size:clamp(9px,.78vw,12px);letter-spacing:.16em;text-transform:uppercase;font-weight:1000}
-.pillar{position:absolute;width:clamp(150px,15vw,190px);border:1px solid rgba(255,244,223,.14);background:rgba(11,18,25,.82);backdrop-filter:blur(22px);border-radius:clamp(20px,2vw,26px);padding:clamp(12px,1.25vw,17px);box-shadow:0 32px 90px rgba(0,0,0,.35)}
-.pillar small{color:rgba(246,195,91,.72);letter-spacing:.16em;text-transform:uppercase;font-weight:1000;font-size:clamp(10px,.86vw,12px)}
-.pillar b{display:block;margin-top:7px;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.045em;color:var(--cream)}
-.pillar span{display:block;margin-top:8px;color:rgba(255,244,223,.61);font-size:clamp(11px,.95vw,13px);font-weight:820;line-height:1.35}
-.p1{left:0;top:12%}.p2{right:0;top:12%}.p3{left:50%;bottom:0;transform:translateX(-50%)}
-.flow,.dist{position:absolute;border-radius:clamp(18px,1.8vw,24px);padding:clamp(12px,1.15vw,16px);border:1px solid rgba(255,244,223,.14);background:rgba(11,18,25,.82);backdrop-filter:blur(22px)}
-.flow{left:2%;bottom:24%;width:clamp(170px,17vw,225px)}
-.row{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,244,223,.08)}
-.row:last-child{border-bottom:0}
-.row b{font-size:clamp(11px,.92vw,13px);color:var(--cream)}
-.row span{font-size:clamp(10px,.82vw,12px);color:rgba(255,244,223,.56);font-weight:850}
-.dist{right:2%;bottom:22%;width:clamp(202px,20vw,255px);border-color:rgba(246,195,91,.30);background:linear-gradient(180deg,rgba(246,195,91,.14),rgba(11,18,25,.88))}
-.dist-title{font-size:clamp(11px,.95vw,13px);font-weight:1000;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
+.visual-panel:before{width:72%;aspect-ratio:1;left:14%;top:8%}
+.visual-panel:after{width:46%;aspect-ratio:1;left:27%;top:23%;border-color:rgba(246,195,91,.10)}
+.visual-content{position:relative;z-index:1}
+.mini-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini-card,.flow-box,.core-box,.dist-box{
+  border:1px solid rgba(255,244,223,.14);
+  background:rgba(8,15,22,.82);
+  border-radius:22px;
+  padding:14px;
+  backdrop-filter:blur(18px);
+}
+.mini-card small{display:block;color:rgba(246,195,91,.72);letter-spacing:.16em;text-transform:uppercase;font-weight:1000;font-size:11px}
+.mini-card b{display:block;margin-top:7px;font-size:clamp(17px,1.25vw,22px);letter-spacing:-.045em;color:var(--cream)}
+.mini-card span{display:block;margin-top:7px;color:rgba(255,244,223,.61);font-size:clamp(10px,.84vw,13px);font-weight:820;line-height:1.35}
+.loop-grid{display:grid;grid-template-columns:.90fr .78fr 1.25fr;gap:12px;align-items:stretch;margin-top:12px}
+.flow-box{display:grid;gap:0}
+.row{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,244,223,.08)}
+.row:first-child{padding-top:0}.row:last-child{border-bottom:0;padding-bottom:0}
+.row b{font-size:clamp(11px,.82vw,13px);color:var(--cream)}
+.row span{font-size:clamp(10px,.72vw,12px);color:rgba(255,244,223,.56);font-weight:850}
+.core-box{display:grid;place-items:center;text-align:center;min-height:170px;background:radial-gradient(circle at 35% 25%,rgba(255,244,223,.24),rgba(53,227,162,.14) 35%,rgba(7,14,19,.94) 70%)}
+.core-box b{font-size:clamp(52px,4.4vw,78px);line-height:.8;letter-spacing:-.08em;color:var(--cream)}
+.core-box span{display:block;margin-top:12px;color:rgba(255,244,223,.68);font-size:clamp(9px,.72vw,12px);letter-spacing:.16em;text-transform:uppercase;font-weight:1000}
+.dist-box{border-color:rgba(246,195,91,.30);background:linear-gradient(180deg,rgba(246,195,91,.14),rgba(8,15,22,.88))}
+.dist-title{font-size:clamp(11px,.82vw,13px);font-weight:1000;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
 .dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:12px}
 .dot{aspect-ratio:1;border-radius:50%;background:rgba(255,244,223,.16);border:1px solid rgba(255,244,223,.08)}
 .on{background:rgba(53,227,162,.82);box-shadow:0 0 16px rgba(53,227,162,.38)}
-.note{margin-top:12px;color:rgba(255,244,223,.70);font-size:clamp(10px,.82vw,12px);line-height:1.38;font-weight:850}
+.note{margin-top:12px;color:rgba(255,244,223,.70);font-size:clamp(10px,.72vw,12px);line-height:1.38;font-weight:850}
 
-.mobile-flow{display:none}
 .site-footer{border-top:1px solid rgba(255,244,223,.12);background:linear-gradient(180deg,rgba(255,244,223,.025),rgba(0,0,0,.18));padding:26px 0 30px}
 .footer-inner{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
 .disclaimer{max-width:980px;color:rgba(255,244,223,.58);font-size:12px;line-height:1.65;font-weight:680}
@@ -116,168 +146,156 @@ place-items:center;
 .footer-links a{color:var(--gold-soft);text-decoration:none;font-size:12px;font-weight:950;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(246,195,91,.32)}
 .footer-links a:hover{color:var(--emerald);border-bottom-color:rgba(53,227,162,.5)}
 
-
-/* Larger desktop: fill the screen more. */
-@media (min-width:1400px) and (min-height:790px){
-:root{--wrap:1360px}
-.hero{grid-template-columns:.78fr 1.22fr;gap:clamp(34px,4vw,68px);padding-block:clamp(28px,4vh,54px)}
-h1{font-size:clamp(54px,4.75vw,82px);max-width:790px;line-height:1.035}
-.hook strong{font-size:clamp(34px,2.75vw,46px)}
-.sub{font-size:clamp(17px,1.12vw,20px);max-width:760px;line-height:1.62}
-.visual{height:min(72svh,680px);min-height:560px}
-.arena{--s:min(100%,min(50vw,72svh,680px))}
-.core{width:clamp(190px,15vw,250px);height:clamp(190px,15vw,250px)}
-.core b{font-size:clamp(66px,5vw,82px)}
-.pillar{width:clamp(180px,14.5vw,220px)}
-.pillar b{font-size:clamp(22px,1.45vw,27px)}
-.pillar span{font-size:clamp(13px,.86vw,15px)}
-.flow{width:clamp(215px,15vw,260px)}
-.dist{width:clamp(255px,18vw,315px)}
-.note{font-size:clamp(12px,.78vw,14px)}
-.btn{font-size:15px;min-height:52px}
+/* large screens: grow, but stay top-aligned */
+@media(min-width:1440px) and (min-height:820px){
+  :root{--wrap:1420px}
+  .hero{grid-template-columns:minmax(560px,.46fr) minmax(0,.54fr);gap:clamp(42px,5vw,86px)}
+  h1{font-size:clamp(56px,3.9vw,76px)}
+  .sub{font-size:18px;max-width:720px}
+  .visual-panel{max-width:800px}
+  .core-box{min-height:205px}
 }
 
-/* Low-height desktop/laptop safety mode */
-@media (min-width:981px) and (max-height:780px){
-:root{--header-h:62px}
-.logo{width:38px;height:38px;border-radius:14px}
-.nav{height:var(--header-h)}
-.hero{padding-block:14px;gap:24px;grid-template-columns:.78fr 1.22fr}
-h1{font-size:clamp(36px,3.85vw,56px);line-height:1.035;margin-top:16px;max-width:620px}
-.hook{margin-top:16px;padding:12px 14px}
-.hook strong{font-size:clamp(23px,2vw,30px)}
-.sub{font-size:14px;line-height:1.45;margin-top:14px;max-width:600px}
-.cta{margin-top:17px}
-.btn{min-height:42px;padding:0 17px;font-size:13px}
-.fine{margin-top:10px}
-.visual{height:min(68svh,500px);min-height:390px}
-.arena{--s:min(100%,min(47vw,68svh,500px))}
-.core{width:150px;height:150px}
-.core b{font-size:50px}
-.core span{font-size:9px}
-.pillar{width:154px;padding:12px}
-.pillar b{font-size:17px}
-.pillar span{font-size:10.5px}
-.flow{width:176px}
-.dist{width:204px}
-.note{font-size:10.5px}
+/* low-height laptop: compact top-aligned mode */
+@media(min-width:901px) and (max-height:780px){
+  :root{--header-h:62px}
+  .logo{width:38px;height:38px;border-radius:14px}
+  .nav{height:var(--header-h)}
+  .hero{padding-block:14px;gap:24px;grid-template-columns:minmax(420px,.46fr) minmax(0,.54fr)}
+  h1{font-size:clamp(35px,3.25vw,52px);line-height:1.035;margin-top:15px}
+  .hook{margin-top:15px;padding:12px 14px}
+  .hook strong{font-size:clamp(23px,2vw,30px)}
+  .sub{font-size:14px;line-height:1.45;margin-top:13px}
+  .cta{margin-top:16px}
+  .btn{min-height:40px;padding:0 16px;font-size:12px}
+  .fine{margin-top:9px}
+  .visual{padding-top:42px}
+  .visual-panel{padding:16px;border-radius:28px}
+  .mini-row,.loop-grid{gap:9px}
+  .mini-card,.flow-box,.core-box,.dist-box{padding:11px;border-radius:18px}
+  .mini-card b{font-size:17px}.mini-card span{font-size:10px}
+  .core-box{min-height:142px}.core-box b{font-size:48px}
+  .row{padding:5px 0}
+  .note{font-size:10px}
 }
 
-/* Medium desktop / tablet landscape */
-@media (max-width:1100px) and (min-width:821px){
-.hero{grid-template-columns:.86fr 1.14fr;gap:20px}
-h1{font-size:clamp(38px,4vw,54px)}
-.visual{height:min(62svh,500px);min-height:400px}
-.arena{--s:min(100%,min(48vw,62svh,500px))}
-.pillar{width:150px}
-.flow{width:170px}
-.dist{width:202px}
+/* medium desktop / tablet landscape */
+@media(max-width:1100px) and (min-width:821px){
+  .hero{grid-template-columns:minmax(390px,.48fr) minmax(0,.52fr);gap:20px}
+  h1{font-size:clamp(35px,3.7vw,50px)}
+  .visual{padding-top:54px}
+  .mini-row{grid-template-columns:1fr 1fr}
+  .mini-row .mini-card:nth-child(3){grid-column:1/-1}
+  .loop-grid{grid-template-columns:1fr 1fr}
+  .dist-box{grid-column:1/-1}
 }
 
-/* Tablet and normal mobile: single-column, no overlap */
+/* tablet/mobile */
 @media(max-width:820px){
-:root{--header-h:64px}
-.badge{display:none}
-.nav{height:var(--header-h)}
-.hero{display:block;min-height:auto;padding:30px 0 42px}
-.copy{max-width:720px;margin:0 auto}
-.cta .btn{width:100%}
-h1{font-size:clamp(38px,11.5vw,58px);line-height:1.075;letter-spacing:-.047em;max-width:760px}
-.sub{font-size:16px;line-height:1.58}
-.visual{height:auto;min-height:0;margin:30px auto 0;max-width:620px}
-.arena{width:min(100%,560px)}
-.footer-inner{grid-template-columns:1fr}
-.footer-links{flex-wrap:wrap}
+  :root{--header-h:64px}
+  .badge{display:none}
+  .nav{height:var(--header-h)}
+  .hero{display:block;min-height:auto;padding:30px 0 42px}
+  .copy{max-width:720px;margin:0 auto}
+  .cta .btn{width:100%}
+  h1{font-size:clamp(36px,10.8vw,58px);line-height:1.075;letter-spacing:-.047em}
+  h1 span{white-space:normal}
+  .sub{font-size:16px;line-height:1.58}
+  .visual{padding-top:0;margin:30px auto 0;max-width:680px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-links{flex-wrap:wrap}
 }
 
-/* Narrow mobile: replace orbit with linear flow */
-@media(max-width:520px){
-.wrap{padding:0 16px}
-.brand{gap:10px}.logo{width:38px;height:38px;border-radius:14px}
-.brand b{font-size:11px}.brand span{font-size:9px}
-.hero{padding:24px 0 34px}
-.kicker{font-size:10px;padding:7px 11px}
-h1{font-size:clamp(35px,12vw,44px);line-height:1.08;letter-spacing:-.042em;margin-top:18px}
-.hook{width:100%;padding:14px 15px}
-.hook strong{font-size:clamp(24px,8vw,32px)}
-.sub{font-size:15px;line-height:1.55;margin-top:17px}
-.cta{margin-top:20px}
-.fine{font-size:10px;line-height:1.35}
-.visual{display:none}
-.mobile-flow{display:block;margin:26px auto 0;max-width:380px}
-.mobile-flow-card{border:1px solid rgba(255,244,223,.14);background:rgba(11,18,25,.82);border-radius:22px;padding:14px 15px;margin-bottom:10px}
-.mobile-flow-card small{display:block;color:rgba(246,195,91,.72);font-weight:1000;letter-spacing:.14em;text-transform:uppercase;font-size:10px}
-.mobile-flow-card b{display:block;margin-top:6px;color:var(--cream);font-size:19px;letter-spacing:-.035em}
-.mobile-flow-card span{display:block;margin-top:5px;color:rgba(255,244,223,.62);font-size:12px;font-weight:820}
-.mobile-arrow{text-align:center;color:rgba(53,227,162,.75);font-weight:1000;margin:-2px 0 8px}
-.mobile-dist{border:1px solid rgba(246,195,91,.30);background:linear-gradient(180deg,rgba(246,195,91,.14),rgba(11,18,25,.88));border-radius:22px;padding:14px 15px;margin-top:12px}
-.mobile-dist .dist-title{font-size:12px}
-.mobile-dist .dots{gap:5px}
-.mobile-dist .note{font-size:11px}
-.site-footer{padding:22px 0 26px}
-.disclaimer{font-size:11px}
+/* narrow mobile: all visual cards stack; no overlap possible */
+@media(max-width:560px){
+  .wrap{padding:0 16px}
+  .brand{gap:10px}.logo{width:38px;height:38px;border-radius:14px}
+  .brand b{font-size:11px}.brand span{font-size:9px}
+  .hero{padding:24px 0 34px}
+  .kicker{font-size:10px;padding:7px 11px}
+  h1{font-size:clamp(34px,11.4vw,44px);line-height:1.09;letter-spacing:-.042em;margin-top:18px}
+  .hook{width:100%;padding:14px 15px}
+  .hook strong{font-size:clamp(24px,8vw,32px)}
+  .sub{font-size:15px;line-height:1.55;margin-top:17px}
+  .cta{margin-top:20px}
+  .btn{white-space:normal;text-align:center;line-height:1.2}
+  .fine{font-size:10px;line-height:1.35}
+  .visual-panel{padding:14px;border-radius:24px}
+  .mini-row,.loop-grid{grid-template-columns:1fr;gap:10px}
+  .core-box{min-height:140px}
+  .site-footer{padding:22px 0 26px}
+  .disclaimer{font-size:11px}
 }
 
-/* Ultra narrow devices such as Galaxy Fold outer screen */
+/* ultra narrow Fold outer screen */
 @media(max-width:340px){
-.wrap{padding:0 12px}
-.nav{height:58px}
-.logo{width:34px;height:34px;border-radius:12px}
-.brand b{font-size:10px;letter-spacing:.22em}
-.brand span{font-size:8px;letter-spacing:.14em}
-.hero{padding:20px 0 30px}
-h1{font-size:32px;line-height:1.1;letter-spacing:-.035em}
-.hook strong{font-size:24px}
-.btn{font-size:12px;white-space:normal;text-align:center;line-height:1.2;padding:0 14px}
-.sub{font-size:14px}
-.mobile-flow-card{padding:12px 13px}
-.mobile-flow-card b{font-size:17px}
-.mobile-flow-card span{font-size:11px}
+  .wrap{padding:0 12px}
+  .nav{height:58px}
+  .logo{width:34px;height:34px;border-radius:12px}
+  .brand b{font-size:10px;letter-spacing:.22em}
+  .brand span{font-size:8px;letter-spacing:.14em}
+  .hero{padding:20px 0 30px}
+  h1{font-size:31px;line-height:1.1;letter-spacing:-.035em}
+  .hook strong{font-size:24px}
+  .sub{font-size:14px}
+  .mini-card,.flow-box,.core-box,.dist-box{padding:12px 13px}
+  .mini-card b{font-size:17px}
+  .mini-card span{font-size:11px}
 }
 </style>
 </head>
 <body>
 <div class="bg"></div>
-<header><div class="wrap nav"><div class="brand"><div class="logo">A</div><div><b>ARENIX</b><span>Training Arena</span></div></div><div class="badge">Forex & Crypto Community Creator Tool</div></div></header>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><div class="logo">A</div><div><b>ARENIX</b><span>Training Arena</span></div></div>
+    <div class="badge">Forex & Crypto Community Creator Tool</div>
+  </div>
+</header>
+
 <main class="wrap hero">
-<section class="copy">
-<div class="kicker"><i class="pulse"></i> Hero page preview</div>
-<h1>Vytvořte komunitu.<br>Aktivujte komunitu.<br>Monetizujte komunitu.</h1>
-<div class="hook"><strong>Téměř každý druhý</strong><span>v distribuční zóně</span></div>
-<p class="sub">Training Arena pro Forex a Crypto partnery, kteří chtějí z publika vytvořit aktivní komunitu, otevřít jí vlastní arénu a monetizovat ji přes session pool.</p>
-<div class="cta"><a class="btn primary" href="#model">Ukázat Monetizační Model →</a><a class="btn ghost" href="#steps">Od Komunity k Distribuční Zóně</a></div>
-<div class="fine">Komunita → Session → Pool → Distribuce poolu</div>
-</section>
-<section class="visual">
-<div class="arena">
-<div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
-<div class="pillar p1"><small>01</small><b>Vytvořit</b><span>publikum → komunita</span></div>
-<div class="pillar p2"><small>02</small><b>Aktivovat</b><span>session → leaderboard → aktivita</span></div>
-<div class="pillar p3"><small>03</small><b>Monetizovat</b><span>pool → distribuce → partnerský podíl</span></div>
-<div class="core"><div><b>A</b><span>Arena Loop</span></div></div>
-<div class="flow"><div class="row"><b>Komunita</b><span>vstup</span></div><div class="row"><b>Session</b><span>aktivace</span></div><div class="row"><b>Pool</b><span>model</span></div><div class="row"><b>Distribuce</b><span>důvod</span></div></div>
-<div class="dist"><div class="dist-title">Distribuční zóna</div><div class="dots">
-<span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span>
-<span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div><div class="note">Trader vstupuje kvůli distribuční zóně. Partner monetizuje díky distribuční zóně.</div></div>
-</div>
-</section>
-<section class="mobile-flow" aria-label="Arena flow mobile">
-<div class="mobile-flow-card"><small>01</small><b>Vytvořit</b><span>publikum → komunita</span></div>
-<div class="mobile-arrow">↓</div>
-<div class="mobile-flow-card"><small>02</small><b>Aktivovat</b><span>session → leaderboard → aktivita</span></div>
-<div class="mobile-arrow">↓</div>
-<div class="mobile-flow-card"><small>03</small><b>Monetizovat</b><span>pool → distribuce → partnerský podíl</span></div>
-<div class="mobile-dist">
-<div class="dist-title">Distribuční zóna</div>
-<div class="dots">
-<span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span>
-<span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="note">Trader vstupuje kvůli distribuční zóně. Partner monetizuje díky distribuční zóně.</div>
-</div>
-</section>
+  <section class="copy">
+    <div class="kicker"><i class="pulse"></i> Hero page preview</div>
+    <h1><span>Vytvořte komunitu.</span><span>Aktivujte komunitu.</span><span>Monetizujte komunitu.</span></h1>
+    <div class="hook"><strong>Téměř každý druhý</strong><span>v distribuční zóně</span></div>
+    <p class="sub">Training Arena pro Forex a Crypto partnery, kteří chtějí z publika vytvořit aktivní komunitu, otevřít jí vlastní arénu a monetizovat ji přes session pool.</p>
+    <div class="cta"><a class="btn primary" href="#model">Ukázat Monetizační Model →</a><a class="btn ghost" href="#steps">Od Komunity k Distribuční Zóně</a></div>
+    <div class="fine">Komunita → Session → Pool → Distribuce poolu</div>
+  </section>
+
+  <section class="visual" aria-label="Arena visual">
+    <div class="visual-panel">
+      <div class="visual-content">
+        <div class="mini-row">
+          <div class="mini-card"><small>01</small><b>Vytvořit</b><span>publikum → komunita</span></div>
+          <div class="mini-card"><small>02</small><b>Aktivovat</b><span>session → leaderboard → aktivita</span></div>
+          <div class="mini-card"><small>03</small><b>Monetizovat</b><span>pool → distribuce → partnerský podíl</span></div>
+        </div>
+
+        <div class="loop-grid">
+          <div class="flow-box">
+            <div class="row"><b>Komunita</b><span>vstup</span></div>
+            <div class="row"><b>Session</b><span>aktivace</span></div>
+            <div class="row"><b>Pool</b><span>model</span></div>
+            <div class="row"><b>Distribuce</b><span>důvod</span></div>
+          </div>
+
+          <div class="core-box"><div><b>A</b><span>Arena Loop</span></div></div>
+
+          <div class="dist-box">
+            <div class="dist-title">Distribuční zóna</div>
+            <div class="dots">
+              <span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span>
+              <span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="note">Trader vstupuje kvůli distribuční zóně. Partner monetizuje díky distribuční zóně.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="disclaimer">
@@ -290,4 +308,5 @@ h1{font-size:32px;line-height:1.1;letter-spacing:-.035em}
     </nav>
   </div>
 </footer>
-</body></html>
+</body>
+</html>
