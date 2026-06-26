@@ -57,19 +57,19 @@ body{
    ultra mobile = stacked cards
 */
 .hero{
-  min-height:calc(100svh - var(--header-h));
+  min-height:auto;
   display:grid;
-  grid-template-columns:minmax(430px,.47fr) minmax(0,.53fr);
-  gap:clamp(26px,4vw,64px);
+  grid-template-columns:minmax(0,.52fr) minmax(0,.48fr);
+  gap:clamp(28px,3.6vw,58px);
   align-items:start;
-  padding-block:clamp(24px,4.3vh,54px);
+  padding-block:clamp(24px,3.4vh,44px) clamp(20px,3vh,36px);
 }
 .copy{min-width:0;position:relative;z-index:2}
 .kicker{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,244,223,.045);padding:7px 12px;font-size:clamp(10px,.72vw,12px);font-weight:1000;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,244,223,.76)}
 .pulse{width:9px;height:9px;border-radius:99px;background:var(--emerald);box-shadow:0 0 18px rgba(53,227,162,.8);flex:0 0 auto}
 h1{
   margin:clamp(18px,2.8vh,28px) 0 0;
-  font-size:clamp(36px,3.55vw,66px);
+  font-size:clamp(36px,3.1vw,58px);
   line-height:1.06;
   letter-spacing:-.052em;
   font-weight:1000;
@@ -88,7 +88,7 @@ h1 span{display:block;white-space:nowrap}
 .fine{margin-top:12px;font-size:clamp(10px,.72vw,12px);color:var(--cream-faint);font-weight:850;letter-spacing:.05em;text-transform:uppercase}
 
 /* Robust visual: normal grid/flex, no overlapping orbit. */
-.visual{min-width:0;align-self:start;padding-top:clamp(38px,7.2vh,84px)}
+.visual{min-width:0;align-self:start;padding-top:clamp(18px,3.2vh,42px)}
 .visual-panel{
   position:relative;
   width:100%;
@@ -146,14 +146,15 @@ h1 span{display:block;white-space:nowrap}
 .footer-links a{color:var(--gold-soft);text-decoration:none;font-size:12px;font-weight:950;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(246,195,91,.32)}
 .footer-links a:hover{color:var(--emerald);border-bottom-color:rgba(53,227,162,.5)}
 
-/* large screens: grow, but stay top-aligned */
+/* large screens: use more width, but keep the two columns safe. */
 @media(min-width:1440px) and (min-height:820px){
   :root{--wrap:1420px}
-  .hero{grid-template-columns:minmax(560px,.46fr) minmax(0,.54fr);gap:clamp(42px,5vw,86px)}
-  h1{font-size:clamp(56px,3.9vw,76px)}
-  .sub{font-size:18px;max-width:720px}
-  .visual-panel{max-width:800px}
-  .core-box{min-height:205px}
+  .hero{grid-template-columns:minmax(0,.53fr) minmax(0,.47fr);gap:clamp(42px,4.2vw,72px);padding-block:clamp(26px,3.2vh,42px) clamp(20px,2.6vh,32px)}
+  h1{font-size:clamp(50px,3.15vw,61px);max-width:none}
+  .sub{font-size:17px;max-width:700px}
+  .visual{padding-top:clamp(18px,2.4vh,30px)}
+  .visual-panel{max-width:760px}
+  .core-box{min-height:190px}
 }
 
 /* low-height laptop: compact top-aligned mode */
@@ -161,7 +162,7 @@ h1 span{display:block;white-space:nowrap}
   :root{--header-h:62px}
   .logo{width:38px;height:38px;border-radius:14px}
   .nav{height:var(--header-h)}
-  .hero{padding-block:14px;gap:24px;grid-template-columns:minmax(420px,.46fr) minmax(0,.54fr)}
+  .hero{padding-block:14px 16px;gap:24px;grid-template-columns:minmax(0,.52fr) minmax(0,.48fr)}
   h1{font-size:clamp(35px,3.25vw,52px);line-height:1.035;margin-top:15px}
   .hook{margin-top:15px;padding:12px 14px}
   .hook strong{font-size:clamp(23px,2vw,30px)}
@@ -169,7 +170,7 @@ h1 span{display:block;white-space:nowrap}
   .cta{margin-top:16px}
   .btn{min-height:40px;padding:0 16px;font-size:12px}
   .fine{margin-top:9px}
-  .visual{padding-top:42px}
+  .visual{padding-top:18px}
   .visual-panel{padding:16px;border-radius:28px}
   .mini-row,.loop-grid{gap:9px}
   .mini-card,.flow-box,.core-box,.dist-box{padding:11px;border-radius:18px}
@@ -181,7 +182,7 @@ h1 span{display:block;white-space:nowrap}
 
 /* medium desktop / tablet landscape */
 @media(max-width:1100px) and (min-width:821px){
-  .hero{grid-template-columns:minmax(390px,.48fr) minmax(0,.52fr);gap:20px}
+  .hero{grid-template-columns:minmax(0,.52fr) minmax(0,.48fr);gap:20px}
   h1{font-size:clamp(35px,3.7vw,50px)}
   .visual{padding-top:54px}
   .mini-row{grid-template-columns:1fr 1fr}
