@@ -857,6 +857,86 @@ h1 span{display:block;white-space:nowrap}
   }
 }
 
+
+/* === FINAL PATCH: PC right-side layout + 4-block visualization only === */
+@media (min-width:821px){
+  .hero{
+    display:grid !important;
+    grid-template-columns:minmax(0,.52fr) minmax(0,.48fr) !important;
+    align-items:start !important;
+  }
+
+  .copy{
+    grid-column:1 !important;
+  }
+
+  .visual{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    padding-top:clamp(18px,3.2vh,42px) !important;
+    margin:0 !important;
+    align-self:start !important;
+  }
+}
+
+.four-block-visual{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
+  align-items:stretch !important;
+}
+
+.four-block-visual .map-title,
+.four-block-visual .arrow-note{
+  grid-column:1 / -1 !important;
+}
+
+.four-block-visual .map-card{
+  min-width:0 !important;
+}
+
+.four-block-visual .community-card,
+.four-block-visual .leaderboard-card,
+.four-block-visual .pool-box,
+.four-block-visual .distribution-box{
+  grid-column:auto !important;
+}
+
+.four-block-visual .distribution-head{
+  display:block !important;
+}
+
+.four-block-visual .distribution-head span{
+  display:block !important;
+  margin-top:4px !important;
+}
+
+.four-block-visual .trader-grid,
+.four-block-visual .dist-grid{
+  grid-template-columns:repeat(10,1fr) !important;
+}
+
+@media (min-width:981px){
+  .four-block-visual{
+    gap:9px !important;
+  }
+
+  .four-block-visual .map-card{
+    padding:10px !important;
+  }
+
+  .four-block-visual .pool-box,
+  .four-block-visual .distribution-box{
+    min-height:150px !important;
+  }
+}
+
+@media (max-width:820px){
+  .four-block-visual{
+    grid-template-columns:1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -874,45 +954,76 @@ h1 span{display:block;white-space:nowrap}
     <h1><span>Vytvořte,</span><span>aktivujte a </span><span>monetizujte komunitu.</span></h1>
     <div class="hook"><strong>Téměř každý druhý Trader</strong><span>v distribuční zóně</span></div>
     <p class="sub">Vlastní aréna pro vaši komunitu. Sdílíte vstupní link. Komunita vstupuje do arény přes vaš link. Aréna pool vytváří monetizační model.</p>
-    <div class="cta"><a class="btn primary" href="#model">Získat Link a Spustit Arénu →</a><a
-    <br><div class="fine">Trading Arena propojí platformy traderů s leaderboardem, poolem a distribucí.</div>
+    <div class="cta"><a class="btn primary" href="#model">Získat Link a Spustit Arénu →</a></div>
+    <div class="fine">Trading Arena propojí platformy traderů s leaderboardem, poolem a distribucí.</div>
   </section>
 
   <section class="visual" aria-label="Arena visual">
     <div class="visual-panel" id="model">
-      <div class="arena-map">
+      <div class="arena-map four-block-visual">
         <div class="map-title">
           <b>Trading Arena propojí všechny platformy traderů</b>
           <span>50 TRADERŮ • 1 ARÉNA • 1 LEADERBOARD • 1 POOL • DISTRIBUCE</span>
         </div>
 
-        <div class="map-card">
+        <div class="map-card community-card">
           <h3>1. Komunita traderů</h3>
           <p>50 traderů vstupuje do Arény.</p>
           <div class="trader-grid" aria-label="50 traderů">
-            <span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span>
-            <span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span>
-            <span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span>
-            <span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot"></span><span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot"></span>
-            <span class="trader-dot active"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot"></span><span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
           </div>
         </div>
 
-        <div class="map-card arena-center">
-          <div>
-            <div class="a">A</div>
-            <span class="label">Trading Arena</span>
-            <span class="small">Leaderboard</span>
-            <span class="small">Pool</span>
-          </div>
-        </div>
-
-        <div class="map-card">
+        <div class="map-card leaderboard-card">
           <h3>2. Leaderboard živě</h3>
           <p>Aktivita traderů se promítá do Leaderboard.</p>
           <div class="leaderboard">
@@ -923,33 +1034,72 @@ h1 span{display:block;white-space:nowrap}
           </div>
         </div>
 
-        <div class="pool-distribution">
-          <div class="map-card pool-box">
-            <h3>3. Arena pool</h3>
-            <p>Pool = počet traderů x počet creditů</p>
-            <div class="coins">🟡🟡🟡</div>
-            <div class="big-number">10 000</div>
-            <div class="credit-label">CELKOVÝ POOL</div>
-          </div>
+        <div class="map-card pool-box">
+          <h3>3. Arena pool</h3>
+          <p>Pool = počet traderů x počet creditů</p>
+          <div class="coins">🟡🟡🟡</div>
+          <div class="big-number">10 000</div>
+          <div class="credit-label">CELKOVÝ POOL</div>
+        </div>
 
-          <div class="map-card distribution-box">
-            <div class="distribution-head">
-              <b>20 z 50</b>
-              <span>v distribuční zóně</span>
-            </div>
-            <p>Celkový pool se rozdělí všem v distribuční zóne.</p>
-            <div class="dist-grid" aria-label="20 z 50 v distribuční zóně">
-              <span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span>
-              <span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span>
-              <span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span>
-              <span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span><span class="dist-person win"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-              <span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span><span class="dist-person"></span>
-            </div>
+        <div class="map-card distribution-box">
+          <h3>4. Distribuční zóna</h3>
+          <div class="distribution-head">
+            <b>20 z 50</b>
+            <span>v distribuční zóně</span>
+          </div>
+          <p>Celkový pool se rozdělí všem v distribuční zóne.</p>
+          <div class="dist-grid" aria-label="20 z 50 v distribuční zóně">
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person win"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
+              <span class="dist-person"></span>
           </div>
         </div>
 
