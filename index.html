@@ -937,6 +937,64 @@ h1 span{display:block;white-space:nowrap}
   }
 }
 
+
+/* === TABLET / OPEN FOLD CENTERING FIX ONLY ===
+   Small mobile and desktop remain unchanged. */
+@media (min-width:561px) and (max-width:820px){
+  .visual{
+    display:flex !important;
+    justify-content:center !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .visual-panel{
+    width:min(92vw, 720px) !important;
+    max-width:720px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  .arena-map{
+    justify-items:center !important;
+  }
+
+  .four-block-visual .map-title,
+  .four-block-visual .map-card,
+  .four-block-visual .arrow-note{
+    width:100% !important;
+    max-width:100% !important;
+    text-align:center !important;
+  }
+
+  .trader-grid,
+  .dist-grid{
+    max-width:420px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .leaderboard{
+    width:100% !important;
+    max-width:560px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .distribution-head{
+    display:block !important;
+    text-align:center !important;
+  }
+
+  .distribution-head span{
+    display:block !important;
+    margin-top:6px !important;
+  }
+}
+
 </style>
 </head>
 <body>
