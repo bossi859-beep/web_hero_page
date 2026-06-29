@@ -1,10 +1,17 @@
 <!doctype html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARENIX COMMUNITY CREATOR TOOL</title>
+<title>ARENIX Community Creator Tool</title>
+<meta name="description" content="Create a private Arena for your Forex or Crypto community with Arena Credits, a live leaderboard and controlled community activation.">
+<link rel="canonical" href="https://arenix.app/">
+<link rel="alternate" hreflang="en" href="https://arenix.app/">
+<link rel="alternate" hreflang="cs" href="https://arenix.app/cs/">
+<link rel="alternate" hreflang="de" href="https://arenix.app/de/">
+<link rel="alternate" hreflang="x-default" href="https://arenix.app/">
 <style>
+
 :root{
   --bg:#03060c;
   --cream:#fff4df;
@@ -995,6 +1002,16 @@ h1 span{display:block;white-space:nowrap}
   }
 }
 
+
+
+/* === LANGUAGE SWITCHER PATCH === */
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.lang-switch{display:flex;align-items:center;gap:6px;border:1px solid rgba(255,244,223,.12);background:rgba(255,244,223,.045);padding:5px;border-radius:999px;white-space:nowrap}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:0 9px;border-radius:999px;color:rgba(255,244,223,.72);text-decoration:none;font-size:10px;font-weight:1000;letter-spacing:.08em;text-transform:uppercase;border:1px solid transparent}
+.lang-switch a:hover{color:var(--gold-soft);border-color:rgba(246,195,91,.24)}
+.lang-switch a.active{background:rgba(246,195,91,.18);border-color:rgba(246,195,91,.34);color:var(--gold-soft)}
+@media(max-width:560px){.nav{gap:10px}.nav-right{gap:6px}.lang-switch{padding:4px}.lang-switch a{min-height:24px;padding:0 7px;font-size:9px}.brand span{display:none}}
+
 </style>
 </head>
 <body>
@@ -1002,34 +1019,40 @@ h1 span{display:block;white-space:nowrap}
 <header>
   <div class="wrap nav">
     <div class="brand"><div class="logo">A</div><div><b>ARENIX</b><span>Trading Arena</span></div></div>
-    <div class="badge">Forex & Crypto Community Creator Tool</div>
+    <div class="nav-right">
+      <nav class="lang-switch" aria-label="Language switcher">
+        <a href="/" class="active">EN</a>
+        <a href="/cs/" class="">CZ</a>
+        <a href="/de/" class="">DE</a>
+      </nav>
+      <div class="badge">Forex & Crypto Community Creator Tool</div>
+    </div>
   </div>
 </header>
 
 <main class="wrap hero">
   <section class="copy">
-    <div class="kicker"><i class="pulse"></i>Nástroj pro Forex a Crypto Komunitu</div>
-    <h1><span><strong>Aréna pro vaši<strong><br></span><span><strong>komunitu je připravena.<strong><br></span><span><strong></span></h1>
-    <div class="hook">Téměř každý druhý<span>v distribuční zóně</span></div>
-    <br><p class="sub">Aréna je nakonfigurována platforma s live leaderboardem a distribucí Arena Credits. <br>Spuštění zabere 60 sekund a je zdarma.</p><br>Platforma slouží jako zátěžový test výkonnosti a konverze vaší komunity.</p>
-    <div class="cta"><a class="btn primary" href="https://bossi859-beep.github.io/registration/"> Váš Aréna Link →</a></div> 
-</a>
-    <bR><div class="fine">Všechny systémy jsou online. Aréna je připravena v režimu Arena Credits.<br> <br>Monetizační vrstva se odemyká až po schválení.
-</div>
+    <div class="kicker"><i class="pulse"></i>Tool for Forex & Crypto Communities</div>
+    <h1><span><strong>Your community</strong></span><span><strong>Arena is ready.</strong></span></h1>
+    <div class="hook"><strong>Almost every second participant</strong><span>in the distribution zone</span></div>
+    <p class="sub">Arena is a configured platform with a live leaderboard and Arena Credits distribution.<br>Launch takes 60 seconds and is free.</p>
+    <p class="sub">The platform serves as a stress test of your community’s performance and conversion potential.</p>
+    <div class="cta"><a class="btn primary" href="/register.html">Create Your Arena Link →</a></div>
+    <div class="fine">All systems are online. The Arena is ready in Arena Credits mode.<br><br>The monetization layer unlocks only after approval.</div>
   </section>
 
   <section class="visual" aria-label="Arena visual">
     <div class="visual-panel" id="model">
       <div class="arena-map four-block-visual">
         <div class="map-title">
-          <b>Link sjednotí komunitu do společné arény.</b>
-          <span>LINK • VSTUP 200 ARÉNA CREDITŮ • TRVÁNÍ 4 HODINY • DISTRIBUCE</span>
+          <b>A single link brings your community into one shared Arena.</b>
+          <span>LINK • ENTRY 200 ARENA CREDITS • DURATION 4 HOURS • DISTRIBUTION</span>
         </div>
 
         <div class="map-card community-card">
-          <h3>1. Komunita 50 traderů</h3>
-          <p>Vstup přes unikátní link.</p>
-          <div class="trader-grid" aria-label="50 traderů">
+          <h3>1. Community of 50 traders</h3>
+          <p>Entry through a unique link.</p>
+          <div class="trader-grid" aria-label="50 traders">
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot active"></span>
@@ -1056,12 +1079,6 @@ h1 span{display:block;white-space:nowrap}
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
-            <span class="trader-dot active"></span>
-            <span class="trader-dot"></span>
-            <span class="trader-dot"></span>
-            <span class="trader-dot"></span>
-            <span class="trader-dot active"></span>
-            <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot active"></span>
             <span class="trader-dot"></span>
@@ -1070,13 +1087,19 @@ h1 span{display:block;white-space:nowrap}
             <span class="trader-dot active"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
-            <span class="trader-dot"></span>
             <span class="trader-dot active"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot active"></span>
             <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot"></span>
+            <span class="trader-dot active"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot"></span>
             <span class="trader-dot active"></span>
@@ -1085,7 +1108,7 @@ h1 span{display:block;white-space:nowrap}
 
         <div class="map-card leaderboard-card">
           <h3>2. Leaderboard</h3>
-          <p>Hodnocení dle procentuálního výsledku.</p>
+          <p>Ranking by percentage result.</p>
           <div class="leaderboard">
             <div class="board-row"><span class="rank top">1</span><span class="name">Trader_07</span><span class="score">+1.45%</span></div>
             <div class="board-row"><span class="rank">2</span><span class="name">Trader_12</span><span class="score red">-2.82%</span></div>
@@ -1095,20 +1118,19 @@ h1 span{display:block;white-space:nowrap}
         </div>
 
         <div class="map-card pool-box">
-          <h3>3.Arena pool</h3>
-          <p>Fixní vstup 200</p>
-           <br><div class="coins">🟡🟡🟡🟡🟡🟡</div>
-           <br><div class="big-number">10 000 Kreditů</div>
+          <h3>3. Arena pool</h3>
+          <p>Fixed entry 200</p>
+          <div class="coins">🟡🟡🟡🟡🟡🟡</div>
+          <div class="big-number">10,000 Credits</div>
         </div>
 
         <div class="map-card distribution-box">
-          <h3>4. Distribuční zóna</h3>
+          <h3>4. Distribution zone</h3>
           <div class="distribution-head">
-            <br><b>20 Traderů</b>
-            <span>obdrží 85% kreditů - i když skončí v záporném výsledku.
-   </span>
+            <b>20 Traders</b>
+            <span>receive 85% of credits — even if they finish with a negative result.</span>
           </div>
-          <div class="dist-grid" aria-label="20 z 50 v distribuční zóně">
+          <div class="dist-grid" aria-label="20 of 50 in the distribution zone">
               <span class="dist-person win"></span>
               <span class="dist-person win"></span>
               <span class="dist-person win"></span>
@@ -1162,9 +1184,9 @@ h1 span{display:block;white-space:nowrap}
           </div>
         </div>
 
-        <div class="arrow-note">Aréna. Leaderboard. Pool. Distribuce.</div>
+        <div class="arrow-note">Arena. Leaderboard. Pool. Distribution.</div>
       </div>
-      <div class="mobile-hint"><a href="#model">Zobrazit logiku distribuce</a></div>
+      <div class="mobile-hint"><a href="#model">Show distribution logic</a></div>
     </div>
   </section>
 </main>
@@ -1172,13 +1194,11 @@ h1 span{display:block;white-space:nowrap}
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="disclaimer">
-      <p>Platforma arenix.app je softwarová infrastruktura provozovaná společností AKO Solutions LLC, Dubai, Spojené arabské emiráty. Platforma slouží jako zátěžový test výkonnosti a konverze vaší komunity. Prostředí Arény běží v uzavřeném režimu Arena Credits. Arena Credits slouží výhradně k ukázce arénových, leaderboardových, poolových a distribučních mechanik. Arena Credits nejsou peníze, nemají peněžní hodnotu a nepředstavují nárok na výplatu, zisk, investiční výnos ani finanční odměnu.ARENIX ani AKO Solutions LLC v žádné fázi nepřijímá, nedrží, nespravuje ani nevyplácí klientské peněžní prostředky. Veškeré procesy, výpočty poolů a distribuční logika jsou řízeny pravidly systému a programovým kódem. Systém neposkytuje investiční služby, finanční poradenství, směnné služby ani platební služby.
-
-</p>
+      <p>The arenix.app platform is software infrastructure operated by AKO Solutions LLC, Dubai, United Arab Emirates. The platform serves as a stress test of the performance and conversion potential of a community. The Arena environment runs in a closed Arena Credits mode. Arena Credits are used exclusively to demonstrate arena, leaderboard, pool and distribution mechanics. Arena Credits are not money, have no monetary value and do not represent any claim to payout, profit, investment return or financial reward. Neither ARENIX nor AKO Solutions LLC accepts, holds, manages or pays out client funds at any stage. All processes, pool calculations and distribution logic are governed by system rules and program code. The system does not provide investment services, financial advice, exchange services or payment services.</p>
     </div>
     <nav class="footer-links" aria-label="Footer links">
-      <a href="https://bossi859-beep.github.io/terms_CZ/">Terms</a>
-      <a href="https://bossi859-beep.github.io/privacy_CZ/">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy Policy</a>
     </nav>
   </div>
 </footer>
